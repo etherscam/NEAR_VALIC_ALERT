@@ -41,7 +41,7 @@ while True:
                     print('ALARM')
                     send_message('*[ALARM]*\n\ncheck your node\r\nProdused block:%s\r\nExpected block:%s' %(num_produced, num_expected), chat_id)
                     requests.post(config['T_BOT']['CALL_API'])
-                    my_call +=1
+                    call_me +=1
                 current=t['result']['epoch_start_height'] 
                 print('Eponch: %s\r\nProduced:%s\r\nExpected:%s' %(current, num_produced, num_expected))
                 if diff and call_me>2:
