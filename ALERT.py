@@ -5,7 +5,6 @@ from time import sleep
 # импортируем библиотеки ^
 config = configparser.ConfigParser()  # создаём объекта парсера
 config.read("near_alarm.ini") 
-TELEGRAM_URL = config['T_BOT']['TELEGRAM_URL']
 TELEGRAM_URL = 'https://api.telegram.org/bot%s/sendMessage?' \
                'text=%s&chat_id=%s&parse_mode=markdown&disable_web_page_preview=True'
 
