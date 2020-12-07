@@ -17,5 +17,5 @@ nano near_alarm.ini
 ```
 Star script
 ```
-Python3 ALERT.py
+python3 ALERT.py
 ```
