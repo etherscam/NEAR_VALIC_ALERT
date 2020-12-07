@@ -10,6 +10,7 @@ git clone https://github.com/etherscam/NEAR_VALIC_ALERT.git
 ```
 Fill in the file near_alarm.ini
 ```
+cd NEAR_VALIC_ALERT
 nano near_alarm.ini
 ```
 Star script
