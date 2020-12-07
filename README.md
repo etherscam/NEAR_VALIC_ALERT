@@ -6,6 +6,8 @@ Clone repo
 ```
 sudo apt-get update
 sudo apt-get install git
+sudo apt-get install screen
+screen (Ctrl+A+C)
 git clone https://github.com/etherscam/NEAR_VALIC_ALERT.git
 ```
 Fill in the file near_alarm.ini
