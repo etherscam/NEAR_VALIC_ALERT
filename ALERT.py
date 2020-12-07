@@ -6,9 +6,13 @@ from time import sleep
 config = configparser.ConfigParser()  # создаём объекта парсера
 config.read("near_alarm.ini") 
 TELEGRAM_URL = config['T_BOT']['TELEGRAM_URL']
+TELEGRAM_URL = 'https://api.telegram.org/bot%s/sendMessage?' \
+               'text=%s&chat_id=%s&parse_mode=markdown&disable_web_page_preview=True'
+
+TELEGRAM_API = config['T_BOT']['TELEGRAM_URL']
 chat_id = config['T_BOT']['CHAT_ID']
 def send_message(text, chat_id):
-    send_url = TELEGRAM_URL % (text, chat_id)
+    send_url = TELEGRAM_URL % (TELEGRAM_API, text, chat_id)
     print(send_url)
     try:
         requests.get(send_url)
