@@ -41,7 +41,7 @@ while True:
                     send_message('Subject: [ALARM] check your node\n\nProdused block:%s\r\nExpected block:%s' %(num_produced, num_expected), chat_id)
                     requests.post(config['T_BOT']['CALL_API'])
                 current=t['result']['epoch_start_height'] 
-                print(current, num_produced,num_produced)   
+                print('Eponch: %s\r\nProduced:%s\r\nExpected:%s' %(current, num_produced, num_expected))   
         if current != prev:
             prev=current
             send_message('New Eponch No: %s' %current, chat_id)
