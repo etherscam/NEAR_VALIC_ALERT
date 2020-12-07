@@ -36,7 +36,7 @@ while True:
                 num_produced = i['num_produced_blocks']
                 num_expected = i['num_expected_blocks']
                 diff =num_expected - num_produced
-                if diff>=config['T_BOT']['THRESHOLD']:
+                if diff>=int(config['T_BOT']['THRESHOLD']):
                     print('ALARM')
                     send_message('Subject: [ALARM] check your node\n\nProdused block:%s\r\nExpected block:%s' %(num_produced, num_expected), chat_id)
                     requests.post(config['T_BOT']['CALL_API'])
