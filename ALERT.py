@@ -32,11 +32,12 @@ while True:
                 print(i['num_produced_blocks'],i['num_expected_blocks'])
                 num_produced = i['num_produced_blocks']
                 num_expected = i['num_expected_blocks']
-                if num_produced<num_expected:
+                diff =num_expected - num_produced
+                if diff>=config['T_BOT']['THRESHOLD']:
                     print('ALARM')
                     send_message('Subject: [ALARM] check your node\n\nProdused block:%s\r\nExpected block:%s' %(num_produced, num_expected), chat_id)
                     requests.post(config['T_BOT']['CALL_API'])
-                current=  t['result']['epoch_start_height'] 
+                current=t['result']['epoch_start_height'] 
                 print(current, num_produced,num_produced)   
         if current != prev:
             prev=current
