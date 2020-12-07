@@ -6,7 +6,7 @@ Clone repo
 ```
 sudo apt-get update
 sudo apt-get install git
-git clone https://github.com/etherscam/INCH.git
+git clone https://github.com/etherscam/NEAR_VALIC_ALERT.git
 ```
 Fill in the file near_alarm.ini
 ```
