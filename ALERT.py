@@ -25,6 +25,7 @@ json={
 }
 eponch = []
 prev = 24205843
+my_call = 0
 while True:
     try:
         r = requests.post('https://rpc.mainnet.near.org', json=json)
@@ -36,15 +37,21 @@ while True:
                 num_produced = i['num_produced_blocks']
                 num_expected = i['num_expected_blocks']
                 diff =num_expected - num_produced
-                if diff>=int(config['T_BOT']['THRESHOLD']):
+                if diff>=int(config['T_BOT']['THRESHOLD']) and my_call<=2:
                     print('ALARM')
                     send_message('*[ALARM]*\n\ncheck your node\r\nProdused block:%s\r\nExpected block:%s' %(num_produced, num_expected), chat_id)
                     requests.post(config['T_BOT']['CALL_API'])
+                    my_call +=1
                 current=t['result']['epoch_start_height'] 
-                print('Eponch: %s\r\nProduced:%s\r\nExpected:%s' %(current, num_produced, num_expected))   
+                print('Eponch: %s\r\nProduced:%s\r\nExpected:%s' %(current, num_produced, num_expected))
+                if diff and call_me>2:
+                    send_message('Subject: [ALARM] check your node\n\nProdused block:%s\r\nExpected block:%s' %(num_produced, num_expected), chat_id)
+                    print('Check your node')
+                    sleep(360)
         if current != prev:
             prev=current
             send_message('New Eponch No: %s' %current, chat_id)
+            my_call = 0
             sleep(60)
             continue
         sleep(180)
