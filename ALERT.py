@@ -38,7 +38,7 @@ while True:
                 diff =num_expected - num_produced
                 if diff>=int(config['T_BOT']['THRESHOLD']):
                     print('ALARM')
-                    send_message('Subject: [ALARM] check your node\n\nProdused block:%s\r\nExpected block:%s' %(num_produced, num_expected), chat_id)
+                    send_message('*[ALARM]*\n\ncheck your node\r\nProdused block:%s\r\nExpected block:%s' %(num_produced, num_expected), chat_id)
                     requests.post(config['T_BOT']['CALL_API'])
                 current=t['result']['epoch_start_height'] 
                 print('Eponch: %s\r\nProduced:%s\r\nExpected:%s' %(current, num_produced, num_expected))   
