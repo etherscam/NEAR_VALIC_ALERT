@@ -45,7 +45,7 @@ while True:
                 current=t['result']['epoch_start_height'] 
                 print('Eponch: %s\r\nProduced:%s\r\nExpected:%s' %(current, num_produced, num_expected))
                 if diff and call_me>2:
-                    send_message('Subject: [ALARM] check your node\n\nProdused block:%s\r\nExpected block:%s' %(num_produced, num_expected), chat_id)
+                    send_message('*[ALARM]*\n\ncheck your node\r\nProdused block:%s\r\nExpected block:%s' %(num_produced, num_expected), chat_id)
                     print('Check your node')
                     sleep(360)
         if current != prev:
